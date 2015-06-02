@@ -36,6 +36,10 @@ public class FuelTrimObdCommand extends PercentageObdCommand {
     this.bank = bank;
   }
 
+  public FuelTrimObdCommand() {
+    this(FuelTrim.SHORT_TERM_BANK_1);
+  }
+
   /**
    * @param value
    * @return
