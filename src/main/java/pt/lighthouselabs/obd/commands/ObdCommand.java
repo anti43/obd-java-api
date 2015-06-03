@@ -30,6 +30,8 @@ public abstract class ObdCommand {
   protected boolean useImperialUnits = false;
   protected String rawData = null;
   protected long responseTimeDelay = 200;//automatic sampling rate detection coming
+  private long start;
+  private long end;
 
   /**
    * Error classes to be tested in order
@@ -102,6 +104,7 @@ public abstract class ObdCommand {
       InterruptedException {
     // write to OutputStream (i.e.: a BluetoothSocket) with an added
     // Carriage return
+    start = System.currentTimeMillis();
     out.write((cmd + "\r").getBytes());
     out.flush();
 
@@ -134,6 +137,8 @@ public abstract class ObdCommand {
    */
   protected void readResult(InputStream in) throws IOException {
     readRawData(in);
+    end = System.currentTimeMillis();
+
     checkForErrors();
     fillBuffer();
     performCalculations();
@@ -283,5 +288,21 @@ public abstract class ObdCommand {
    */
   public void setResponseTimeDelay(long responseTimeDelay) {
     this.responseTimeDelay = responseTimeDelay;
+  }
+
+  public long getStart() {
+    return start;
+  }
+
+  public void setStart(long start) {
+    this.start = start;
+  }
+
+  public long getEnd() {
+    return end;
+  }
+
+  public void setEnd(long end) {
+    this.end = end;
   }
 }
