@@ -28,7 +28,7 @@ public class DistanceTraveledWithMILOnObdCommand extends ObdCommand
    * Default ctor.
    */
   public DistanceTraveledWithMILOnObdCommand() {
-    super("01 31");
+    super("01 21");
   }
 
   /**
@@ -86,7 +86,7 @@ public class DistanceTraveledWithMILOnObdCommand extends ObdCommand
 
   @Override
   public String getName() {
-    return AvailableCommandNames.DISTANCE_TRAVELED_AFTER_CODES_CLEARED
+    return AvailableCommandNames.DISTANCE_TRAVELED_MIL_ON
         .getValue();
   }
 

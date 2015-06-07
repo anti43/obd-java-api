@@ -24,7 +24,7 @@ public class RelativeThrottlePositionObdCommand extends PercentageObdCommand {
    * Default ctor.
    */
   public RelativeThrottlePositionObdCommand() {
-    super("01 11");
+    super("01 45");
   }
 
   /**
@@ -41,7 +41,7 @@ public class RelativeThrottlePositionObdCommand extends PercentageObdCommand {
 	 */
   @Override
   public String getName() {
-    return AvailableCommandNames.THROTTLE_POS.getValue();
+    return AvailableCommandNames.REL_THROTTLE_POS.getValue();
   }
 
 }

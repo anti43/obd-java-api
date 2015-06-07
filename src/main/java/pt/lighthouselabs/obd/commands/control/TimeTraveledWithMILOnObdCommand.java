@@ -13,22 +13,20 @@
 package pt.lighthouselabs.obd.commands.control;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
-import pt.lighthouselabs.obd.commands.SystemOfUnits;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Distance traveled since codes cleared-up.
  */
-public class TimeTraveledWithMILOnObdCommand extends ObdCommand
-    implements SystemOfUnits {
+public class TimeTraveledWithMILOnObdCommand extends ObdCommand {
 
-  private int km = 0;
+  private int min = 0;
 
   /**
    * Default ctor.
    */
   public TimeTraveledWithMILOnObdCommand() {
-    super("01 21");
+    super("01 4D");
   }
 
   /**
@@ -44,49 +42,28 @@ public class TimeTraveledWithMILOnObdCommand extends ObdCommand
   @Override
   protected void performCalculations() {
     // ignore first two bytes [01 31] of the response
-    km = buffer.get(2) * 256 + buffer.get(3);
+    min = buffer.get(2) * 256 + buffer.get(3);
   }
  
   public String getFormattedResult() {
-    return useImperialUnits ? String.format("%.2f%s", getImperialUnit(), getResultUnit())
-            : String.format("%d%s", (float)km, getResultUnit());
+    return String.format("%.2f%s", getResultUnit());
   }
 
 
   @Override
   public String getCalculatedResult() {
-    return useImperialUnits ? String.valueOf(getImperialUnit()) : String.valueOf(km);
+    return String.valueOf(min);
   }
 
   @Override
   public String getResultUnit() {
-    return useImperialUnits ? "m" : "km";
+    return "min";
   }
 
-  @Override
-  public float getImperialUnit() {
-    return new Double(km * 0.621371192).floatValue();
-  }
-
-  /**
-   * @return a int.
-   */
-  public int getKm() {
-    return km;
-  }
-
-  /**
-   * <p>Setter for the field <code>km</code>.</p>
-   *
-   * @param km a int.
-   */
-  public void setKm(int km) {
-    this.km = km;
-  }
 
   @Override
   public String getName() {
-    return AvailableCommandNames.DISTANCE_TRAVELED_MIL_ON
+    return AvailableCommandNames.TIME_TRAVELED_MIL_ON
         .getValue();
   }
 

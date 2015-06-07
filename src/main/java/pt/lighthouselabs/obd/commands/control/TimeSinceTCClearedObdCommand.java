@@ -26,7 +26,7 @@ public class TimeSinceTCClearedObdCommand extends ObdCommand {
    * Default ctor.
    */
   public TimeSinceTCClearedObdCommand() {
-    super("01 4D");
+    super("01 4E");
   }
 
   /**
@@ -63,7 +63,7 @@ public class TimeSinceTCClearedObdCommand extends ObdCommand {
 
   @Override
   public String getName() {
-    return AvailableCommandNames.TIME_TRAVELED_MIL_ON
+    return AvailableCommandNames.TIME_SINCE_TC_CLEARED
         .getValue();
   }
 
