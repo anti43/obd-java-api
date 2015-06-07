@@ -44,9 +44,9 @@ public class TimeTraveledWithMILOnObdCommand extends ObdCommand {
     // ignore first two bytes [01 31] of the response
     min = buffer.get(2) * 256 + buffer.get(3);
   }
- 
+
   public String getFormattedResult() {
-    return String.format("%.2f%s", getResultUnit());
+    return getCalculatedResult() + "" + getResultUnit();
   }
 
 

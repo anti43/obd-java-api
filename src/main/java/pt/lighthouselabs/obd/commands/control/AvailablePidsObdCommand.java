@@ -16,55 +16,58 @@ import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
- * Distance traveled since codes cleared-up.
+ * Fuel systems that use conventional oxygen sensor display the commanded open
+ * loop equivalence ratio while the system is in open loop. Should report 100%
+ * when in closed loop fuel.
+ * <p>
+ * To obtain the actual air/fuel ratio being commanded, multiply the
+ * stoichiometric A/F ratio by the equivalence ratio. For example, gasoline,
+ * stoichiometric is 14.64:1 ratio. If the fuel control system was commanded an
+ * equivalence ratio of 0.95, the commanded A/F ratio to the engine would be
+ * 14.64 * 0.95 = 13.9 A/F.
  */
-public class TimeSinceTCClearedObdCommand extends ObdCommand {
+public class AvailablePidsObdCommand extends ObdCommand {
 
-  private int min = 0;
 
   /**
    * Default ctor.
    */
-  public TimeSinceTCClearedObdCommand() {
-    super("01 4E");
+  public AvailablePidsObdCommand() {
+    super("01 04");
   }
 
   /**
    * Copy ctor.
    *
-   * @param other a {@link TimeSinceTCClearedObdCommand} object.
+   * @param other a {@link AvailablePidsObdCommand} object.
    */
-  public TimeSinceTCClearedObdCommand(
-          TimeSinceTCClearedObdCommand other) {
+  public AvailablePidsObdCommand(AvailablePidsObdCommand other) {
     super(other);
   }
 
   @Override
   protected void performCalculations() {
-    // ignore first two bytes [01 31] of the response
-    min = buffer.get(2) * 256 + buffer.get(3);
-  }
- 
-  public String getFormattedResult() {
-    return getCalculatedResult() + "" + getResultUnit();
+
   }
 
+  @Override
+  public String getFormattedResult() {
+    return getCalculatedResult();
+  }
 
   @Override
   public String getCalculatedResult() {
-    return String.valueOf(min);
+    return String.valueOf(rawData);
   }
 
   @Override
   public String getResultUnit() {
-    return "min";
+    return null;
   }
-
 
   @Override
   public String getName() {
-    return AvailableCommandNames.TIME_SINCE_TC_CLEARED
-        .getValue();
+    return AvailableCommandNames.VIN.getValue();
   }
 
 }
