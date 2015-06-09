@@ -47,7 +47,7 @@ public class DistanceTraveledWithMILOnObdCommand extends ObdCommand
  
   public String getFormattedResult() {
     return useImperialUnits ? String.format("%.2f%s", getImperialUnit(), getResultUnit())
-            : String.format("%d%s", (float)km, getResultUnit());
+            : String.format("%.2f%s", (float)km, getResultUnit());
   }
 
 
