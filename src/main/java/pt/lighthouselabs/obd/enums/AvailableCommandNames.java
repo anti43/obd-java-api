@@ -43,7 +43,8 @@ public enum AvailableCommandNames {
   DISTANCE_TRAVELED_MIL_ON("Distance traveled with malfunction indicator lamp (MIL) on"),
   TIME_TRAVELED_MIL_ON ("Time run with MIL on"),
   TIME_SINCE_TC_CLEARED("Time since trouble codes cleared"),
-  REL_THROTTLE_POS("Relative throttle position");
+  REL_THROTTLE_POS("Relative throttle position"),
+  PIDS("Available PIDs");
 
   private final String value;
 

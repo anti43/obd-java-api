@@ -33,7 +33,7 @@ public class AvailablePidsObdCommand extends ObdCommand {
    * Default ctor.
    */
   public AvailablePidsObdCommand() {
-    super("01 04");
+    super("01 00");
   }
 
   /**
@@ -67,7 +67,7 @@ public class AvailablePidsObdCommand extends ObdCommand {
 
   @Override
   public String getName() {
-    return AvailableCommandNames.VIN.getValue();
+    return AvailableCommandNames.PIDS.getValue();
   }
 
 }
