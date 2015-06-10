@@ -19,6 +19,7 @@ import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 public class VinObdCommand extends ObdCommand {
 
+  String vin = "";
 
   /**
    * Default ctor.
@@ -38,7 +39,12 @@ public class VinObdCommand extends ObdCommand {
 
   @Override
   protected void performCalculations() {
-
+    // ignore first two bytes [01 31] of the response
+    StringBuilder b = new StringBuilder();
+    for(int i = 2; i < buffer.size(); i++){
+      b.append(Character.toChars(buffer.get(i)));
+    }
+    vin = b.toString();
   }
 
   @Override
