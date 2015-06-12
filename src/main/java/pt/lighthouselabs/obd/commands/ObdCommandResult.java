@@ -12,6 +12,7 @@ public class ObdCommandResult implements Parcelable {
     private String clazz;
     private long time;
     private long duration;
+    private float currentSamplingRate = 0f;
     private String resultFormatted;
     private String resultUnit;
     private String result;
@@ -36,6 +37,7 @@ public class ObdCommandResult implements Parcelable {
         out.writeString(result);
         out.writeInt(state);
         out.writeString(clazz);
+        out.writeFloat(currentSamplingRate);
     }
 
     public static final Parcelable.Creator<ObdCommandResult> CREATOR = new Parcelable.Creator<ObdCommandResult>() {
@@ -57,6 +59,7 @@ public class ObdCommandResult implements Parcelable {
         result = in.readString();
         state = in.readInt();
         clazz = in.readString();
+        currentSamplingRate = in.readFloat();
     }
 
     public ObdCommandResult(ObdCommand base, int state) {
@@ -133,5 +136,13 @@ public class ObdCommandResult implements Parcelable {
 
     public void setClazz(String clazz) {
         this.clazz = clazz;
+    }
+
+    public float getCurrentSamplingRate() {
+        return currentSamplingRate;
+    }
+
+    public void setCurrentSamplingRate(float currentSamplingRate) {
+        this.currentSamplingRate = currentSamplingRate;
     }
 }

@@ -138,11 +138,10 @@ public abstract class ObdCommand {
    */
   protected void readResult(InputStream in) throws IOException {
     readRawData(in);
-    end = System.currentTimeMillis();
-
     checkForErrors();
     fillBuffer();
     performCalculations();
+    end = System.currentTimeMillis();
   }
 
   /**
