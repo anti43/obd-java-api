@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        jcenter()
+        jcenter { url "http://jcenter.bintray.com/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
@@ -9,7 +9,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 repositories {
-    jcenter()
+    jcenter { url "http://jcenter.bintray.com/" }
     maven { url 'http://download.crashlytics.com/maven' }
     maven { url "https://repo.commonsware.com.s3.amazonaws.com" }
 }
