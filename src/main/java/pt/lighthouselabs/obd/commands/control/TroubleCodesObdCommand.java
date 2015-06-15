@@ -30,14 +30,13 @@ public class TroubleCodesObdCommand extends ObdCommand {
   protected final static char[] dtcLetters = { 'P', 'C', 'B', 'U' };
   protected final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-  private StringBuffer codes = null;
+  private StringBuffer codes = new StringBuffer();
   private int howManyTroubleCodes = 0;
 
 
   public TroubleCodesObdCommand() {
     super("03");
 
-    codes = new StringBuffer();
   }
 
   /**
@@ -48,7 +47,6 @@ public class TroubleCodesObdCommand extends ObdCommand {
   public TroubleCodesObdCommand(int howManyTroubleCodes) {
     super("03");
 
-    codes = new StringBuffer();
     this.howManyTroubleCodes = howManyTroubleCodes;
   }
 
@@ -62,14 +60,11 @@ public class TroubleCodesObdCommand extends ObdCommand {
     codes = new StringBuffer();
   }
 
-  @Override
-  protected void fillBuffer() {
-  }
 
   @Override
   protected void performCalculations() {
 
-    String workingData = getResult().replaceAll("[\r\n]", "");
+    String workingData = rawData.replaceAll("[\r\n]", "");
 
     int begin = 0; // start at 2nd byte
 
@@ -106,34 +101,10 @@ public class TroubleCodesObdCommand extends ObdCommand {
     return (byte) ((Character.digit(s, 16) << 4));
   }
 
-  /**
-   * @return the formatted result of this command in string representation.
-   */
-  public String formatResult() {
-    return codes.toString();
-  }
-
-  @Override
-  protected void readRawData(InputStream in) throws IOException {
-    byte b = 0;
-    StringBuilder res = new StringBuilder();
-
-    // read until '>' arrives
-    while ((char) (b = (byte) in.read()) != '>') {
-      if ((char) b != ' ') {
-        res.append((char) b);
-      }
-    }
-
-    rawData = res.toString().trim();
-
-  }
-
   @Override
   public String getFormattedResult() {
     return codes.toString();
   }
-
 
   @Override
   public String getCalculatedResult() {
@@ -149,5 +120,4 @@ public class TroubleCodesObdCommand extends ObdCommand {
   public String getName() {
     return AvailableCommandNames.TROUBLE_CODES.getValue();
   }
-
 }

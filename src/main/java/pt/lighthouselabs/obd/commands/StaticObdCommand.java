@@ -32,6 +32,11 @@ public abstract class StaticObdCommand extends ObdCommand {
         super(command);
     }
 
+    public static void reset() {
+        knownValues = new HashMap<String, String>();
+        knownBuffers = new HashMap<String, ArrayList<Integer>>();
+    }
+
     public StaticObdCommand(ObdCommand other) {
         this(other.cmd);
     }

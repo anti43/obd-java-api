@@ -12,10 +12,15 @@
  */
 package pt.lighthouselabs.obd.exceptions;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Thrown when there is a "7F 01 12" message.
  */
 public class UnsupportedCommandException extends ObdResponseException {
+
+  public static Set<String> knownCommands = new HashSet<String>();
 
   public UnsupportedCommandException() {
     super("7F 01 12");

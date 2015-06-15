@@ -54,7 +54,7 @@ public abstract class ObdCommand {
    *          the command to send
    */
   public ObdCommand(String command) {
-    this.cmd = command;
+    this.cmd = command+ " 1";
     this.buffer = new ArrayList<Integer>();
   }
 
@@ -213,6 +213,9 @@ public abstract class ObdCommand {
       }
 
       if (messageError.isError(rawData)) {
+        if(messageError instanceof UnsupportedCommandException){
+          UnsupportedCommandException.knownCommands.add(getClass().getSimpleName());
+        }
         throw messageError;
       }
     }
