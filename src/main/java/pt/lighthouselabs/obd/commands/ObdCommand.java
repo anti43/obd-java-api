@@ -61,7 +61,7 @@ public abstract class ObdCommand {
   /**
    * Prevent empty instantiation
    */
-  private ObdCommand() {
+  protected ObdCommand() {
   }
 
   /**

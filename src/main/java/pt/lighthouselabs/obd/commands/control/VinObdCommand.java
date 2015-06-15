@@ -14,10 +14,11 @@ package pt.lighthouselabs.obd.commands.control;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.StaticObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 
-public class VinObdCommand extends ObdCommand {
+public class VinObdCommand extends StaticObdCommand {
 
   String vin = "";
 
