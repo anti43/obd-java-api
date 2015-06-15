@@ -13,9 +13,10 @@
 package pt.lighthouselabs.obd.commands.control;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
+import pt.lighthouselabs.obd.commands.StaticObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
-public class AvailablePidsObdCommand extends ObdCommand {
+public class AvailablePidsObdCommand extends StaticObdCommand {
 
 
   /**
