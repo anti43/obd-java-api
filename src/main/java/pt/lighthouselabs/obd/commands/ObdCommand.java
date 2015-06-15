@@ -18,6 +18,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import android.util.Log;
+import pt.lighthouselabs.obd.commands.control.TroubleCodesObdCommand;
+import pt.lighthouselabs.obd.commands.engine.EngineLoadObdCommand;
+import pt.lighthouselabs.obd.commands.protocol.ObdProtocolCommand;
 import pt.lighthouselabs.obd.exceptions.*;
 
 /**
@@ -54,8 +57,12 @@ public abstract class ObdCommand {
    *          the command to send
    */
   public ObdCommand(String command) {
-    this.cmd = command+ " 1";
+    this.cmd = command;
     this.buffer = new ArrayList<Integer>();
+
+    if(!(this instanceof ObdProtocolCommand) && !(this instanceof TroubleCodesObdCommand)){
+      this.cmd += " 1";//speed up
+    }
   }
 
   /**
