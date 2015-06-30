@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Mass Air Flow
  */
-public class MassAirFlowObdCommand extends ObdCommand {
+public class MassAirFlowObdCommand extends ObdCommand implements FastObdCommand {
 
   private float maf = -1.0f;
 

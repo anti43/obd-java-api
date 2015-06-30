@@ -14,12 +14,13 @@ package pt.lighthouselabs.obd.commands.temperature;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.SystemOfUnits;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 
 /**
  * Abstract temperature command.
  */
 public abstract class TemperatureObdCommand extends ObdCommand implements
-    SystemOfUnits {
+    SystemOfUnits, FastObdCommand {
 
   private float temperature = 0.0f;
 

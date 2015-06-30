@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Calculated Engine Load value.
  */
-public class EngineLoadObdCommand extends PercentageObdCommand {
+public class EngineLoadObdCommand extends PercentageObdCommand implements FastObdCommand {
 
   public EngineLoadObdCommand() {
     super("01 04");

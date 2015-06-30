@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Displays the current engine revolutions per minute (RPM).
  */
-public class EngineRPMObdCommand extends ObdCommand {
+public class EngineRPMObdCommand extends ObdCommand implements FastObdCommand {
 
   private int rpm = -1;
 

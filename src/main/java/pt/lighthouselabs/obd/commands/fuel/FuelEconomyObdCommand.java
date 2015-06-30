@@ -18,12 +18,13 @@ import java.io.OutputStream;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.SpeedObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * TODO put description
  */
-public class FuelEconomyObdCommand extends ObdCommand {
+public class FuelEconomyObdCommand extends ObdCommand implements FastObdCommand {
 
   protected float kml = -1.0f;
 

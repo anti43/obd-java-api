@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.fuel;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Fuel Consumption Rate per hour.
  */
-public class FuelConsumptionRateObdCommand extends ObdCommand {
+public class FuelConsumptionRateObdCommand extends ObdCommand implements FastObdCommand {
 
   private float fuelRate = -1.0f;
 

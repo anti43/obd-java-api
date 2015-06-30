@@ -12,12 +12,13 @@
  */
 package pt.lighthouselabs.obd.commands;
 
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Current speed.
  */
-public class SpeedObdCommand extends ObdCommand implements SystemOfUnits {
+public class SpeedObdCommand extends ObdCommand implements SystemOfUnits, FastObdCommand {
 
   private int metricSpeed = 0;
 

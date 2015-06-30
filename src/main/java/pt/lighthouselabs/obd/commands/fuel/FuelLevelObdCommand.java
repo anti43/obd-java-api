@@ -14,12 +14,13 @@ package pt.lighthouselabs.obd.commands.fuel;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Get fuel level in percentage
  */
-public class FuelLevelObdCommand extends PercentageObdCommand {
+public class FuelLevelObdCommand extends PercentageObdCommand implements FastObdCommand {
 
 
   public FuelLevelObdCommand() {

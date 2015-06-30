@@ -14,12 +14,13 @@ package pt.lighthouselabs.obd.commands.fuel;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.FuelTrim;
 
 /**
  * Fuel Trim.
  */
-public class FuelTrimObdCommand extends PercentageObdCommand {
+public class FuelTrimObdCommand extends PercentageObdCommand implements FastObdCommand {
 
     private final FuelTrim bank;
 

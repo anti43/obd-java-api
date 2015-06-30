@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Read the throttle position in percentage.
  */
-public class ThrottlePositionObdCommand extends PercentageObdCommand {
+public class ThrottlePositionObdCommand extends PercentageObdCommand implements FastObdCommand {
 
   /**
    * Default ctor.

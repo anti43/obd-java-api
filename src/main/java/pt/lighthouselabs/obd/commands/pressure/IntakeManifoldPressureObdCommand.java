@@ -12,12 +12,13 @@
  */
 package pt.lighthouselabs.obd.commands.pressure;
 
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Intake Manifold Pressure
  */
-public class IntakeManifoldPressureObdCommand extends PressureObdCommand {
+public class IntakeManifoldPressureObdCommand extends PressureObdCommand implements FastObdCommand {
 
   /**
    * Default ctor.

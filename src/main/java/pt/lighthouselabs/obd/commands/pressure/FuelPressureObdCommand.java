@@ -12,9 +12,10 @@
  */
 package pt.lighthouselabs.obd.commands.pressure;
 
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
-public class FuelPressureObdCommand extends PressureObdCommand {
+public class FuelPressureObdCommand extends PressureObdCommand implements FastObdCommand {
 
   public FuelPressureObdCommand() {
     super("010A");

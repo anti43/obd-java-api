@@ -13,12 +13,13 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 /**
  * Engine runtime.
  */
-public class EngineRuntimeObdCommand extends ObdCommand {
+public class EngineRuntimeObdCommand extends ObdCommand implements FastObdCommand {
 
   private int value = 0;
 

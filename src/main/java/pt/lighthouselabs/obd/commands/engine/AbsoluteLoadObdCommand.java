@@ -13,10 +13,11 @@
 package pt.lighthouselabs.obd.commands.engine;
 
 import pt.lighthouselabs.obd.commands.PercentageObdCommand;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.enums.AvailableCommandNames;
 
 
-public class AbsoluteLoadObdCommand extends PercentageObdCommand {
+public class AbsoluteLoadObdCommand extends PercentageObdCommand implements FastObdCommand {
 
 
   /**

@@ -14,12 +14,13 @@ package pt.lighthouselabs.obd.commands.pressure;
 
 import pt.lighthouselabs.obd.commands.ObdCommand;
 import pt.lighthouselabs.obd.commands.SystemOfUnits;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 
 /**
  * Abstract pressure command.
  */
 public abstract class PressureObdCommand extends ObdCommand implements
-    SystemOfUnits {
+    SystemOfUnits, FastObdCommand {
 
   protected int tempValue = 0;
   protected int pressure = 0;

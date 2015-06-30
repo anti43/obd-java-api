@@ -18,6 +18,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import android.util.Log;
+import pt.lighthouselabs.obd.commands.control.FastObdCommand;
 import pt.lighthouselabs.obd.commands.control.TroubleCodesObdCommand;
 import pt.lighthouselabs.obd.commands.engine.EngineLoadObdCommand;
 import pt.lighthouselabs.obd.commands.protocol.ObdProtocolCommand;
@@ -60,7 +61,7 @@ public abstract class ObdCommand {
     this.cmd = command;
     this.buffer = new ArrayList<Integer>();
 
-    if(!(this instanceof ObdProtocolCommand) && !(this instanceof TroubleCodesObdCommand)){
+    if(this instanceof FastObdCommand){
       this.cmd += " 1";//speed up
     }
   }
@@ -161,9 +162,8 @@ public abstract class ObdCommand {
    *
    */
   protected void fillBuffer() {
-    rawData = rawData.replaceAll("\\s", "");
 
-    if (!rawData.matches("([0-9A-F]{2})+")) {
+    if (!rawData.matches("([0-9A-F])+")) {
       throw new NonNumericResponseException(rawData);
     }
 
@@ -183,9 +183,10 @@ public abstract class ObdCommand {
     StringBuilder res = new StringBuilder();
 
     // read until '>' arrives
-    while ((char) (b = (byte) in.read()) != '>')
+    while ((char) (b = (byte) in.read()) != '>') {
       res.append((char) b);
-
+    }
+    Log.d("ObdCommand RAW", getName() + "( " + cmd + " ) -> " + res);
     /*
      * Imagine the following response 41 0c 00 0d.
      *
@@ -201,7 +202,8 @@ public abstract class ObdCommand {
      * The response ends with two carriage return characters. So we need to take
      * everything from the last carriage return before those two (trimmed above).
      */
-    rawData = rawData.substring(rawData.lastIndexOf(13) + 1);
+    //kills multiline.. rawData = rawData.substring(rawData.lastIndexOf(13) + 1);
+    rawData = rawData.replaceAll("\\s", "");//removes all [ \t\n\x0B\f\r]
 
     Log.d("ObdCommand", getName() + "( " + cmd + " ) -> " + rawData);
   }
