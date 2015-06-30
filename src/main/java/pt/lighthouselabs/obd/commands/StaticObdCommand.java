@@ -58,4 +58,9 @@ public abstract class StaticObdCommand extends ObdCommand {
             super.run(in, out);
         }
     }
+
+    public static boolean knows(Class cmd) {
+        String key = cmd.getSimpleName();
+        return knownValues.containsKey(key);
+    }
 }
