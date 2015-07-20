@@ -13,12 +13,13 @@
 package com.github.pires.obd.commands.engine;
 
 import com.github.pires.obd.commands.ObdCommand;
+import com.github.pires.obd.commands.ReturnAsapCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
 
 /**
  * Displays the current engine revolutions per minute (RPM).
  */
-public class EngineRPMObdCommand extends ObdCommand {
+public class EngineRPMObdCommand extends ObdCommand implements ReturnAsapCommand {
 
   private int rpm = -1;
 

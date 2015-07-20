@@ -13,12 +13,13 @@
 package com.github.pires.obd.commands.engine;
 
 import com.github.pires.obd.commands.ObdCommand;
+import com.github.pires.obd.commands.ReturnAsapCommand;
 import com.github.pires.obd.enums.AvailableCommandNames;
 
 /**
  * Mass Air Flow
  */
-public class MassAirFlowObdCommand extends ObdCommand {
+public class MassAirFlowObdCommand extends ObdCommand implements ReturnAsapCommand {
 
   private float maf = -1.0f;
 
