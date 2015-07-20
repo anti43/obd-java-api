@@ -36,5 +36,13 @@ android {
 }
 
 dependencies {
+    // EasyMock
+    testCompile 'org.easymock:easymock:3.3.1'
 
+    // PowerMock
+    testCompile 'org.powermock:powermock-core:1.6.2'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.2'
+
+    // PowerMock + EasyMock extension
+    testCompile 'org.powermock:powermock-api-easymock:1.6.2'
 }
