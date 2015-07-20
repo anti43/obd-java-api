@@ -12,13 +12,23 @@
  */
 package com.github.pires.obd.exceptions;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * Thrown when there is a "?" message.
+ * Thrown when there is a "7F" message.
  */
 public class UnsupportedCommandException extends ObdResponseException {
 
+  public static Set<String> knownCommands = new HashSet<String>();
+
   public UnsupportedCommandException() {
     super("7F 0[0-9] 12", true);
+  }
+
+  public void setCommand(String command) {
+    super.setCommand(command);
+    knownCommands.add(command);
   }
 
 }
