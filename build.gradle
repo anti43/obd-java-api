@@ -45,4 +45,6 @@ dependencies {
 
     // PowerMock + EasyMock extension
     testCompile 'org.powermock:powermock-api-easymock:1.6.2'
+    testCompile 'org.testng:testng:5.7'
+
 }
