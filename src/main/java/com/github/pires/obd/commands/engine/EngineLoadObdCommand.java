@@ -36,7 +36,7 @@ public class EngineLoadObdCommand extends PercentageObdCommand {
   /*
    * (non-Javadoc)
    * 
-   * @see pt.lighthouselabs.obd.commands.ObdCommand#getName()
+   * @see com.github.pires.obd.commands.ObdCommand#getName()
    */
   @Override
   public String getName() {
