@@ -305,7 +305,6 @@ public abstract class ObdCommand {
     this.responseTimeDelay = responseTimeDelay;
   }
 
-  //fixme resultunit
   public long getStart() {
     return start;
   }
@@ -322,4 +321,7 @@ public abstract class ObdCommand {
     this.end = end;
   }
 
+  public String getCommand() {
+     return cmd;
+  }
 }
