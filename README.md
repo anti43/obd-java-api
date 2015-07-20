@@ -23,16 +23,16 @@ mvn clean install
 ### Maven ###
 ```
 <dependency>
-  <groupId>pt.lighthouselabs.obd</groupId>
+  <groupId>com.github.pires</groupId>
   <artifactId>obd-java-api</artifactId>
-  <version>0.8</version>
+  <version>1.0-RC4</version>
 </dependency>
 ```
 
 ### Gradle ###
 ```
 dependencies {
-    compile 'pt.lighthouselabs.obd:obd-java-api:0.8'
+    compile 'com.github.pires:obd-java-api:1.0-RC4'
 }
 ```
 

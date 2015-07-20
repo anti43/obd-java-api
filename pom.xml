@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
-    <version>7</version>
+    <version>9</version>
   </parent>
 
-  <groupId>pt.lighthouselabs.obd</groupId>
+  <groupId>com.github.pires</groupId>
   <artifactId>obd-java-api</artifactId>
-  <version>0.9-SNAPSHOT</version>
+  <version>1.0-RC5-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>OBD Java API</name>
@@ -134,8 +134,8 @@
           <header>${basedir}/COPYRIGHT.txt</header>
           <strictCheck>true</strictCheck>
           <includes>
-            <include>**/src/main/java/pt/lighthouselabs/**/*.java</include>
-            <include>**/src/test/java/pt/lighthouselabs/**/*.java</include>
+            <include>**/src/main/java/**/*.java</include>
+            <include>**/src/test/java/**/*.java</include>
           </includes>
           <useDefaultExcludes>true</useDefaultExcludes>
           <encoding>UTF-8</encoding>
