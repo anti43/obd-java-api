@@ -1,6 +1,8 @@
 buildscript {
     repositories {
-        jcenter { url "http://jcenter.bintray.com/" }
+        maven { url "http://mvnrepository.com/"}
+        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
@@ -9,9 +11,11 @@ buildscript {
 apply plugin: 'com.android.library'
 
 repositories {
-    jcenter { url "http://jcenter.bintray.com/" }
+    maven { url "http://mvnrepository.com/"}
     maven { url 'http://download.crashlytics.com/maven' }
     maven { url "https://repo.commonsware.com.s3.amazonaws.com" }
+    mavenCentral()
+    jcenter()
 }
 
 android {
@@ -45,6 +49,6 @@ dependencies {
 
     // PowerMock + EasyMock extension
     testCompile 'org.powermock:powermock-api-easymock:1.6.2'
-    testCompile 'org.testng:testng:5.7'
+    testCompile 'org.testng:testng:6.9.6'
 
 }
