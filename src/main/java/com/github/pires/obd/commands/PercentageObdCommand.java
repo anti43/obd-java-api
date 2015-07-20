@@ -47,16 +47,6 @@ public abstract class PercentageObdCommand extends ObdCommand {
     return String.format("%.1f%s", percentage, getResultUnit());
   }
 
-
-  @Override
-  public String getCalculatedResult() {
-    return String.valueOf(percentage);
-  }
-
-  @Override
-  public String getResultUnit() {
-    return "%";
-  }
   /**
    * @return a float.
    */

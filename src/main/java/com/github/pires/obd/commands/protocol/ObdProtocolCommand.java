@@ -55,9 +55,5 @@ public abstract class ObdProtocolCommand extends ObdCommand {
     // settings commands don't return a value appropriate to place into the
     // buffer, so do nothing
   }
-  
-  @Override
-  public String getCalculatedResult() {
-    return String.valueOf(getResult());
-  }
+
 }
