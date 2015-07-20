@@ -220,7 +220,6 @@ public abstract class ObdCommand {
 
       try {
         messageError = errorClass.newInstance();
-        messageError.setCommand(this.cmd);
       } catch (InstantiationException e) {
         throw new RuntimeException(e);
       } catch (IllegalAccessException e) {
@@ -228,6 +227,7 @@ public abstract class ObdCommand {
       }
 
       if (messageError.isError(rawData)) {
+        messageError.setCommand(this.cmd);
         throw messageError;
       }
     }
