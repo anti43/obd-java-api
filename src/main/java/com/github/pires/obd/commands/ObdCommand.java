@@ -60,7 +60,7 @@ public abstract class ObdCommand {
     this.cmd = command;
     this.buffer = new ArrayList<Integer>();
     if (this instanceof ReturnAsapCommand) {
-      this.cmd += " 1";//speed up
+      //this.cmd += " 1";//speed up not supported by all devices
     }
   }
 
