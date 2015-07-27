@@ -162,7 +162,7 @@ public abstract class ObdCommand {
    */
   protected void fillBuffer() {
     rawData = rawData.replaceAll("\\s", ""); //removes all [ \t\n\x0B\f\r]
-    rawData = rawData.replaceAll("(BUS INIT)|(BUSINIT)|(\\.)", "");
+    rawData = rawData.replaceAll("(BUS INIT)|(BUSINIT)|(\\.)|(:)", "");
 
     if (!rawData.matches("([0-9A-F])+")) {
       throw new NonNumericResponseException(rawData);
