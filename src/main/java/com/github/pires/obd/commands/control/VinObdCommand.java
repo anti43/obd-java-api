@@ -46,10 +46,18 @@ public class VinObdCommand extends PersistentObdCommand {
     @Override
     protected void performCalculations() {
         // ignore first two bytes [01 31] of the response
+
         StringBuilder b = new StringBuilder();
         try {
-            for (int i : bufferUse) {
-                b.append(new Character((char) buffer.get(i).intValue()).toString());
+
+            if (buffer.size() > bufferUse[bufferUse.length-1]) {
+                for (int i : bufferUse) {
+                    b.append(new Character((char) buffer.get(i).intValue()).toString());
+                }
+            } else {
+                for (int i = 2; i < buffer.size(); i++) {
+                    b.append(new Character((char) buffer.get(i).intValue()).toString());
+                }
             }
             vin = b.toString().replaceAll("[\u0000-\u001f]", "");
         } catch (Exception e) {
